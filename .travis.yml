@@ -6,4 +6,4 @@ before_install:
   - docker build -t thewolverine/frontend -f Dockerfile.dev .
 
 script:
-  - docker run thewolverine/frontend npm run test -- --coverage
+  - docker run -e CI=true thewolverine/frontend npm run test -- --coverage
