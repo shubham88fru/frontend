@@ -7,3 +7,13 @@ before_install:
 
 script:
   - docker run -e CI=true thewolverine/frontend npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'ap-south-1'
+  name: 'docker-react'
+  env: 'docker-env'
+  bucket_name: 'bucket_name_create_by_ebs'
+  bucket_path: 'docker-react'
+  on:
+    branch: master
